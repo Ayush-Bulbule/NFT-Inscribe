@@ -1,19 +1,29 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { StickyNavbar } from './components/StickyNavbar'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import ErrorPage from './pages/ErrorPage'
+import { FooterWithLogo } from './components/FooterWithLogo'
+import IssueCertificate from './pages/IssueCertificate'
+import VerifyCertificate from './pages/VerifyCertificate'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div className='bg-gray-900 h-screen w-screen flex items-center justify-center'>
+    <BrowserRouter>
+      <StickyNavbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<ErrorPage />} />
+        <Route path="/issue-certificate" element={<IssueCertificate />} />
+        <Route path="/verify-certificate" element={<VerifyCertificate />} />
 
-        <h1 className='text-gray-50  text-xl font-semibold'>Welcome to NFT Inscribe</h1>
-      </div>
 
-    </>
+      </Routes>
+      <FooterWithLogo />
+    </BrowserRouter>
   )
 }
 
