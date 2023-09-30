@@ -7,6 +7,7 @@ import ErrorPage from './pages/ErrorPage'
 import { FooterWithLogo } from './components/FooterWithLogo'
 import IssueCertificate from './pages/IssueCertificate'
 import VerifyCertificate from './pages/VerifyCertificate'
+import AdminDashboard from './pages/AdminDashboard'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,10 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<ErrorPage />} />
-        <Route path="/issue-certificate" element={<IssueCertificate />} />
+        <Route path="/issue-certificate" element={<AdminDashboard />} />
         <Route path="/verify-certificate" element={<VerifyCertificate />} />
-
-
       </Routes>
       <FooterWithLogo />
     </BrowserRouter>
